@@ -1,1 +1,2 @@
-*.pkl filter=lfs diff=lfs merge=lfs -text
+# 移除Git LFS，Railway的Docker构建不支持LFS
+# *.pkl filter=lfs diff=lfs merge=lfs -text
