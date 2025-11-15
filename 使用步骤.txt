@@ -1,0 +1,72 @@
+========================================
+  Sepsis风险评分计算器 - 使用步骤
+========================================
+
+【首次使用 - 必须步骤】
+
+步骤1：训练模型
+--------------
+在命令行中运行：
+    python train_model.py
+
+这将：
+  ✓ 读取最优参数文件（最优模型RF参数.xlsx）
+  ✓ 加载训练集（smote_nc_mimiciv_train.csv）
+  ✓ 加载测试集（mimiciii_test1.xlsx）
+  ✓ 训练随机森林模型
+  ✓ 创建SHAP解释器
+  ✓ 保存模型文件：
+     - rf_model.pkl
+     - shap_explainer.pkl
+     - feature_info.pkl
+
+预计时间：几分钟（取决于数据大小）
+
+步骤2：启动Web应用
+------------------
+方法1：使用启动脚本（推荐）
+   双击 start_app.bat
+
+方法2：使用命令行
+   streamlit run app.py
+
+应用将在浏览器中自动打开：
+   http://localhost:8501
+
+【日常使用】
+
+如果模型文件已存在，直接运行步骤2即可。
+
+【生成SHAP图片（可选）】
+
+如果需要生成PNG格式的SHAP图片：
+   python create_shap_plots.py
+
+或：
+   python generate_shap_images.py
+
+将生成：
+   - shap_force_plot.png
+   - shap_waterfall_plot.png
+
+========================================
+快速检查清单：
+========================================
+
+□ 1. 检查模型文件是否存在
+   - rf_model.pkl
+   - shap_explainer.pkl
+   - feature_info.pkl
+
+□ 2. 如果不存在，运行 train_model.py
+
+□ 3. 启动应用（start_app.bat 或 streamlit run app.py）
+
+□ 4. 在浏览器中输入特征值
+
+□ 5. 点击"Calculate Sepsis Risk"按钮
+
+□ 6. 查看结果和SHAP可视化
+
+========================================
+

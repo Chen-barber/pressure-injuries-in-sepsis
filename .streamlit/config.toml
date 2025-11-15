@@ -1,0 +1,9 @@
+[server]
+port = 8501
+address = "0.0.0.0"  # 允许外部访问，0.0.0.0表示监听所有网络接口
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
+

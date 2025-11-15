@@ -1,0 +1,35 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist
+build
+.git
+.gitignore
+.env
+.venv
+venv/
+ENV/
+env/
+*.log
+*.md
+*.txt
+!requirements.txt
+*.bat
+*.xlsx
+*.csv
+!rf_model.pkl
+!shap_explainer.pkl
+!feature_info.pkl
+Critical Care/
+meeting/
+spesis and pi/
+Final result终版/
+*.png
+*.jpg
+*.jpeg
+

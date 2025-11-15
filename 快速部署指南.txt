@@ -1,0 +1,77 @@
+========================================
+  快速部署指南 - 最简单方法
+========================================
+
+【方法一：Railway（推荐，最简单）】
+
+步骤1：准备GitHub仓库
+-------------------
+1. 注册GitHub账号（如果没有）
+   https://github.com
+
+2. 创建新仓库
+   - 点击右上角 "+" → "New repository"
+   - 名称：pressure-injuries-in-sepsis
+   - 选择 Public
+   - 不要勾选 README
+   - 创建
+
+3. 上传代码
+   在项目目录运行：
+   
+   git init
+   git add .
+   git commit -m "准备部署"
+   git remote add origin https://github.com/你的用户名/pressure-injuries-in-sepsis.git
+   git branch -M main
+   git push -u origin main
+
+   如果文件太大，先安装Git LFS：
+   git lfs install
+   git lfs track "*.pkl"
+   git add .gitattributes
+   git add .
+   git commit -m "准备部署"
+   git push -u origin main
+
+
+步骤2：在Railway部署
+-------------------
+1. 访问 https://railway.app
+2. 点击 "Login" → "Login with GitHub"
+3. 点击 "New Project"
+4. 选择 "Deploy from GitHub repo"
+5. 选择你的仓库
+6. 等待自动部署（3-5分钟）
+7. 部署完成后，在Settings → Domains获取链接
+
+
+步骤3：分享链接
+---------------
+将Railway提供的链接分享给其他人即可！
+
+
+【如果遇到问题】
+
+1. 文件太大无法推送？
+   → 使用Git LFS（见步骤1）
+
+2. 构建失败？
+   → 检查所有.pkl文件是否上传
+   → 查看Railway的构建日志
+
+3. 应用无法访问？
+   → 检查部署状态是否为"Running"
+   → 查看应用日志
+
+
+【详细教程】
+请查看：详细部署教程.md
+
+
+【一键检查脚本】
+运行：powershell -ExecutionPolicy Bypass -File 一键部署脚本.ps1
+
+
+========================================
+
