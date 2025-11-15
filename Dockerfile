@@ -33,9 +33,9 @@ COPY feature_info.pkl .
 # 暴露端口
 EXPOSE 8501
 
-# 健康检查（Streamlit的健康检查端点）
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl --fail http://localhost:8501/_stcore/health || exit 1
+# 健康检查（增加启动等待时间，Streamlit需要时间加载模型）
+HEALTHCHECK --interval=30s --timeout=15s --start-period=120s --retries=5 \
+    CMD curl --fail http://localhost:8501/ || exit 1
 
 # 启动Streamlit应用
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
