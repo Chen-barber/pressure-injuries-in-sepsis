@@ -6,10 +6,13 @@ WORKDIR /app
 
 # 设置环境变量
 ENV PYTHONUNBUFFERED=1
-ENV STREAMLIT_SERVER_PORT=8501
+# Railway会注入PORT环境变量，如果没有则使用8501
+ENV STREAMLIT_SERVER_PORT=${PORT:-8501}
 ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 ENV STREAMLIT_SERVER_HEADLESS=true
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+ENV STREAMLIT_SERVER_ENABLE_CORS=false
+ENV STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
 
 # 安装系统依赖
 RUN apt-get update && apt-get install -y \
@@ -38,5 +41,6 @@ HEALTHCHECK --interval=30s --timeout=15s --start-period=120s --retries=5 \
     CMD curl --fail http://localhost:8501/ || exit 1
 
 # 启动Streamlit应用
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# 使用环境变量PORT（Railway会自动注入）
+CMD ["sh", "-c", "streamlit run app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true"]
 
