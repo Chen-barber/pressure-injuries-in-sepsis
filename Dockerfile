@@ -43,6 +43,6 @@ HEALTHCHECK --interval=30s --timeout=15s --start-period=120s --retries=5 \
 
 # 启动Streamlit应用
 # Railway会注入PORT环境变量（通常是8080），必须使用它
-# 注意：PORT变量在运行时注入，不能使用${PORT}语法，需要在CMD中处理
-CMD streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true
+# 使用shell格式以支持环境变量
+CMD ["sh", "-c", "streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true"]
 
