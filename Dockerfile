@@ -26,7 +26,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # 复制应用文件
 COPY app.py .
-COPY train_model.py .
 COPY rf_model.pkl .
 COPY shap_explainer.pkl .
 COPY feature_info.pkl .
