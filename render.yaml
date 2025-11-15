@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: pressure-injuries-in-sepsis
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: STREAMLIT_SERVER_PORT
+        value: 8501
+      - key: STREAMLIT_SERVER_ADDRESS
+        value: 0.0.0.0
+      - key: STREAMLIT_SERVER_HEADLESS
+        value: true
+    healthCheckPath: /_stcore/health
+

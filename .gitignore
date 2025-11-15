@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# 数据文件（不需要上传）
+*.xlsx
+*.csv
+*.xls
+spesis and pi/
+meeting/
+Critical Care/
+Final result终版/
+
+# 临时文件
+*.log
+*.tmp
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 输出文件
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.eps
+output.txt
+
+# 但保留必需的文件
+!rf_model.pkl
+!shap_explainer.pkl
+!feature_info.pkl
+!requirements.txt
+!app.py
+!Dockerfile
+
+# 文档文件（可选，如果想上传可以删除这些行）
+# *.md
+# *.txt
+# !README.md
+
